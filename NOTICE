@@ -1,0 +1,32 @@
+@roger/pre-hydration-cleanup
+Copyright 2025 Roger
+
+This software includes browser extension detection patterns and compatibility
+data derived from publicly available information about the following browser
+extensions and their DOM injection behaviors:
+
+- ColorZilla (https://www.colorzilla.com/)
+- Grammarly (https://www.grammarly.com/)
+- LanguageTool (https://languagetool.org/)
+- LastPass (https://www.lastpass.com/)
+- Honey (https://www.joinhoney.com/)
+- AdBlock (https://getadblock.com/)
+- Microsoft Editor (https://www.microsoft.com/en-us/microsoft-365/microsoft-editor)
+- 1Password (https://1password.com/)
+- Bitwarden (https://bitwarden.com/)
+
+This software does not redistribute any code from these extensions, but rather
+provides cleanup utilities to handle the DOM attributes they inject. The
+extension detection patterns are based on publicly observable behavior and
+are used solely for compatibility and user experience purposes.
+
+The inclusion of extension names and detection patterns in this software is
+for interoperability purposes only and does not imply endorsement or
+affiliation with any of the mentioned browser extension providers.
+
+Font assets and compression utilities may be subject to separate licenses.
+Please refer to individual font licenses and compression library documentation
+for specific terms.
+
+Third-party testing dependencies (Jest, Playwright, etc.) are used under
+their respective licenses and are not redistributed with this package.

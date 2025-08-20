@@ -1,0 +1,87 @@
+{
+  "name": "@roger/pre-hydration-cleanup",
+  "version": "1.0.0",
+  "description": "Enterprise-grade pre-hydration cleanup utility for Next.js applications",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./cli": "./dist/cli.cjs"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "npm run build:lib && npm run build:cli",
+    "build:lib": "tsup src/index.ts --format esm,cjs --dts --clean --tsconfig ./tsconfig.json",
+    "build:cli": "tsup src/cli.ts --format cjs --out-dir dist --tsconfig ./tsconfig.json",
+    "build:watch": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "typecheck": "tsc --noEmit",
+    "release": "npm run build && npm run test && npm run typecheck && npm publish --access public --provenance",
+    "release:local": "npm run build && npm run test && npm run typecheck && npm publish --access public",
+    "prepublishOnly": "npm run build && npm run test && npm run typecheck"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "hydration",
+    "ssr",
+    "browser-extensions",
+    "csp",
+    "pre-hydration",
+    "cleanup",
+    "enterprise"
+  ],
+  "author": {
+    "name": "Roger",
+    "email": "devluosir@gmail.com",
+    "url": "https://github.com/roger"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devluosir/pre-hydration-cleanup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devluosir/pre-hydration-cleanup/issues"
+  },
+  "homepage": "https://github.com/devluosir/pre-hydration-cleanup#readme",
+  "peerDependencies": {
+    "next": ">=13.0.0",
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
