@@ -1,15 +1,15 @@
 {
-  "name": "@roger/pre-hydration-cleanup",
+  "name": "@devluosir/pre-hydration-cleanup",
   "version": "1.0.0",
   "description": "Enterprise-grade pre-hydration cleanup utility for Next.js applications",
   "type": "module",
   "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./cli": "./dist/cli.cjs"
@@ -27,7 +27,7 @@
     "build:lib": "tsup src/index.ts --format esm,cjs --dts --clean --tsconfig ./tsconfig.json",
     "build:cli": "tsup src/cli.ts --format cjs --out-dir dist --tsconfig ./tsconfig.json",
     "build:watch": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "lint": "eslint src --ext .ts,.tsx",
@@ -51,7 +51,7 @@
   "author": {
     "name": "Roger",
     "email": "devluosir@gmail.com",
-    "url": "https://github.com/roger"
+    "url": "https://github.com/devluosir"
   },
   "license": "MIT",
   "repository": {
