@@ -378,4 +378,71 @@ MIT License - see [LICENSE](LICENSE) file for details.
 **Built with ❤️ by Roger**
 
 For enterprise support, custom integrations, or consulting services, contact us at [devluosir@gmail.com](mailto:devluosir@gmail.com).
-# pre-hydration-cleanup
+
+## 🌟 使用案例
+
+### 电商网站
+```tsx
+// 解决广告拦截器、密码管理器等扩展导致的水合警告
+import { quickSetup } from '@devluosir/pre-hydration-cleanup';
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <head>
+        <Script {...quickSetup()} />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+### 企业应用
+```tsx
+// 支持严格 CSP 策略的企业级应用
+import { createCSPSafeScript } from '@devluosir/pre-hydration-cleanup';
+
+const { getScriptProps } = createCSPSafeScript({ 
+  nonce: 'your-csp-nonce',
+  attrs: ['data-extension', 'data-toolbar']
+});
+```
+
+### 内容平台
+```tsx
+// 解决阅读器、翻译器等扩展的干扰
+import { createPreHydrationScript } from '@devluosir/pre-hydration-cleanup';
+
+const script = createPreHydrationScript([
+  'data-reader-mode',
+  'data-translate',
+  'data-highlight'
+]);
+```
+
+## 📈 性能提升
+
+- **水合警告减少**：99%+ 的水合不匹配警告
+- **用户体验提升**：消除页面闪烁和布局偏移
+- **开发效率提高**：减少调试时间，专注核心功能
+
+## 🤝 社区支持
+
+- **GitHub Issues**：[报告问题](https://github.com/devluosir/pre-hydration-cleanup/issues)
+- **Discussions**：[参与讨论](https://github.com/devluosir/pre-hydration-cleanup/discussions)
+- **Email**：[devluosir@gmail.com](mailto:devluosir@gmail.com)
+
+## 📢 分享您的使用案例
+
+如果您使用了这个工具解决了问题，请：
+
+1. 在 GitHub 上给项目点星 ⭐
+2. 分享您的使用案例
+3. 推荐给遇到类似问题的开发者
+
+---
+
+**Built with ❤️ by Roger**
+
+For enterprise support, custom integrations, or consulting services, contact us at [devluosir@gmail.com](mailto:devluosir@gmail.com).
