@@ -1,4 +1,4 @@
-# @roger/pre-hydration-cleanup
+# @devluosir/pre-hydration-cleanup
 
 [![npm version](https://badge.fury.io/js/@roger%2Fpre-hydration-cleanup.svg)](https://badge.fury.io/js/@roger%2Fpre-hydration-cleanup)
 [![CI Status](https://github.com/devluosir/pre-hydration-cleanup/workflows/CI/badge.svg)](https://github.com/devluosir/pre-hydration-cleanup/actions)
@@ -22,11 +22,11 @@ Enterprise-grade pre-hydration cleanup utility for Next.js applications. Elimina
 ### Installation
 
 ```bash
-npm install @roger/pre-hydration-cleanup
+npm install @devluosir/pre-hydration-cleanup
 # or
-yarn add @roger/pre-hydration-cleanup
+yarn add @devluosir/pre-hydration-cleanup
 # or
-pnpm add @roger/pre-hydration-cleanup
+pnpm add @devluosir/pre-hydration-cleanup
 ```
 
 ### Basic Usage
@@ -34,7 +34,7 @@ pnpm add @roger/pre-hydration-cleanup
 ```tsx
 // app/layout.tsx (Next.js 13+ App Router)
 import Script from 'next/script';
-import { createPreHydrationScript } from '@roger/pre-hydration-cleanup';
+import { createPreHydrationScript } from '@devluosir/pre-hydration-cleanup';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ### Quick Setup (One-liner)
 
 ```tsx
-import { quickSetup } from '@roger/pre-hydration-cleanup';
+import { quickSetup } from '@devluosir/pre-hydration-cleanup';
 
 // In your layout.tsx
 <Script {...quickSetup()} />
@@ -67,7 +67,7 @@ For applications with strict Content Security Policy:
 // app/layout.tsx
 import Script from 'next/script';
 import { headers } from 'next/headers';
-import { createCSPSafeScript } from '@roger/pre-hydration-cleanup';
+import { createCSPSafeScript } from '@devluosir/pre-hydration-cleanup';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const nonce = headers().get('x-nonce');
@@ -96,7 +96,7 @@ NEXT_PUBLIC_CLEANUP_ATTRS="custom-extension-attr,another-attr"
 ### Advanced Configuration
 
 ```tsx
-import { createPreHydrationScript } from '@roger/pre-hydration-cleanup';
+import { createPreHydrationScript } from '@devluosir/pre-hydration-cleanup';
 
 // Merge mode (default): default + environment + custom attributes
 const script1 = createPreHydrationScript(['my-custom-attr']);
@@ -108,7 +108,7 @@ const script2 = createPreHydrationScript(['my-custom-attr'], true);
 ### CSP Configuration with Custom Options
 
 ```tsx
-import { createCSPSafeScript } from '@roger/pre-hydration-cleanup';
+import { createCSPSafeScript } from '@devluosir/pre-hydration-cleanup';
 
 const { content, getScriptProps } = createCSPSafeScript({
   customAttrs: ['company-extension'],
@@ -144,7 +144,7 @@ Pre-configured support for 15+ popular extensions:
 In development mode, the utility automatically detects and reports extension usage:
 
 ```tsx
-import { devExtensionWarning } from '@roger/pre-hydration-cleanup';
+import { devExtensionWarning } from '@devluosir/pre-hydration-cleanup';
 
 // Enable extension detection in development
 devExtensionWarning({
@@ -178,19 +178,19 @@ Generate cleanup scripts for non-Next.js projects:
 
 ```bash
 # Generate basic script
-npx @roger/pre-hydration-cleanup
+npx @devluosir/pre-hydration-cleanup
 
 # With custom attributes
-npx @roger/pre-hydration-cleanup --attrs "custom1,custom2"
+npx @devluosir/pre-hydration-cleanup --attrs "custom1,custom2"
 
 # Output to file
-npx @roger/pre-hydration-cleanup --output cleanup.js
+npx @devluosir/pre-hydration-cleanup --output cleanup.js
 
 # Generate JSON config
-npx @roger/pre-hydration-cleanup --format json --output config.json
+npx @devluosir/pre-hydration-cleanup --format json --output config.json
 
 # Generate ES module
-npx @roger/pre-hydration-cleanup --format module --output cleanup.mjs
+npx @devluosir/pre-hydration-cleanup --format module --output cleanup.mjs
 ```
 
 ## 🌍 Framework Integration
@@ -211,7 +211,7 @@ See examples above.
 ### Vanilla HTML
 
 ```tsx
-import { generateCleanupScript } from '@roger/pre-hydration-cleanup';
+import { generateCleanupScript } from '@devluosir/pre-hydration-cleanup';
 
 const script = generateCleanupScript(['custom-attr']);
 // Insert into your HTML template

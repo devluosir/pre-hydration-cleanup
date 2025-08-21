@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * CLI tool for @roger/pre-hydration-cleanup
+ * CLI tool for @devluosir/pre-hydration-cleanup
  * Generates standalone cleanup scripts for non-Next.js projects
  */
 
